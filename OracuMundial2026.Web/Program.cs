@@ -1,0 +1,112 @@
+using Microsoft.EntityFrameworkCore;
+using MudBlazor.Services;
+using OracuMundial2026.Web;
+using OracuMundial2026.Web.Components;
+using OracuMundial2026.Web.DAL;
+using OracuMundial2026.Web.Services;
+using OracuMundial2026.Web.Services.Simulation;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
+// Add services to the container.
+builder.Services.AddRazorComponents()
+    .AddInteractiveServerComponents();
+builder.Services.AddMudServices();
+
+builder.Services.Configure<OracuMundial2026Config>(builder.Configuration.GetSection("OracuMundial2026"));
+var ConnectionString = builder.Configuration.GetConnectionString("OracuMundial2026") ??
+    throw new ArgumentNullException("No connection string found in the config!");
+
+
+builder.Services.AddDbContext<OracuMundial2026DbContext>(options => options.UseSqlite(ConnectionString));
+
+builder.Services.AddScoped<CsvImportService>();
+builder.Services.AddScoped<PredictionService>();
+builder.Services.AddScoped<EvaluationService>();
+builder.Services.AddScoped<SnapshotService>();
+builder.Services.AddScoped<SimulationService>();
+builder.Services.AddHttpClient<RankingRefreshService>((sp, client) =>
+{
+    var options = sp.GetRequiredService<Microsoft.Extensions.Options.IOptions<OracuMundial2026Config>>().Value;
+    client.Timeout = TimeSpan.FromSeconds(30);
+    client.DefaultRequestHeaders.UserAgent.ParseAdd(options.RankingRefreshUserAgent);
+});
+builder.Services.AddHttpClient<ApiFootballService>((sp, client) =>
+{
+    var options = sp.GetRequiredService<Microsoft.Extensions.Options.IOptions<OracuMundial2026Config>>().Value;
+    client.BaseAddress = new Uri(options.ApiFootballBaseUrl);
+    client.Timeout = TimeSpan.FromSeconds(45);
+    client.DefaultRequestHeaders.Add("User-Agent", "Oráculo Mundial 2026");
+    if (!string.IsNullOrWhiteSpace(options.ApiFootballApiKey))
+    {
+        client.DefaultRequestHeaders.Add("x-apisports-key", options.ApiFootballApiKey);
+    }
+});
+builder.Services.AddHttpClient<AvailabilityNewsService>((sp, client) =>
+{
+    var options = sp.GetRequiredService<Microsoft.Extensions.Options.IOptions<OracuMundial2026Config>>().Value;
+    client.BaseAddress = new Uri(options.OpenRouterBaseUrl);
+    client.Timeout = TimeSpan.FromSeconds(60);
+    client.DefaultRequestHeaders.UserAgent.ParseAdd(options.AvailabilityRefreshUserAgent);
+});
+
+var app = builder.Build();
+
+using (var Scope = app.Services.CreateScope())
+{
+    var Config = Scope.ServiceProvider.GetRequiredService<Microsoft.Extensions.Options.IOptions<OracuMundial2026Config>>().Value;
+    var CsvImporterService = Scope.ServiceProvider.GetRequiredService<CsvImportService>();
+    if (Config.RankingRefreshOnStartup)
+    {
+        try
+        {
+            var RankingRefresh = Scope.ServiceProvider.GetRequiredService<RankingRefreshService>();
+            var RankingReport = await RankingRefresh.RefreshAsync();
+            foreach (var note in RankingReport.Notes)
+                app.Logger.LogInformation("{Note}", note);
+            foreach (var error in RankingReport.Errors)
+                app.Logger.LogWarning("{Error}", error);
+
+            if (RankingReport.AnyFileUpdated)
+            {
+                var Db = Scope.ServiceProvider.GetRequiredService<OracuMundial2026DbContext>();
+                var HasImportedData =
+                    await Db.Groups.AnyAsync() &&
+                    await Db.Teams.AnyAsync() &&
+                    await Db.Fixtures.AnyAsync() &&
+                    await Db.Results.AnyAsync();
+
+                if (HasImportedData)
+                    await CsvImporterService.ImportRatingsOnlyAsync();
+            }
+        }
+        catch (Exception ex)
+        {
+            app.Logger.LogWarning(ex, "Ranking refresh failed during startup. Existing CSV data will be used.");
+        }
+    }
+
+    await CsvImporterService.ImportIfNeededAsync();
+}
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error", createScopeForErrors: true);
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+
+
+app.UseAntiforgery();
+
+app.MapStaticAssets();
+app.MapRazorComponents<App>()
+    .AddInteractiveServerRenderMode();
+
+app.Run();
