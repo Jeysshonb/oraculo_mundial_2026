@@ -6,6 +6,28 @@ Aplicación web para predecir el Mundial de Fútbol 2026. Construida con .NET 9 
 
 ---
 
+## 🏆 Predicción: Campeón Mundial 2026 — Japón 🇯🇵
+
+> **10.000 simulaciones Monte Carlo. El oráculo habló.**
+
+![Predicción Oráculo Mundial 2026 - Japón campeón](ganador_japon.png)
+
+| Equipo | Clasifica | 16avos | 4tos | Semis | Final | **Campeón** |
+|---|---|---|---|---|---|---|
+| 🇯🇵 **Japan** | 92% | 60% | 43% | 29% | 19% | **11,2%** |
+| 🇦🇷 Argentina | 90% | 60% | 42% | 28% | 17% | 10,8% |
+| 🇪🇸 Spain | 94% | 60% | 40% | 27% | 17% | 10,1% |
+| 🏴󠁧󠁢󠁥󠁮󠁧󠁿 England | 92% | 57% | 35% | 20% | 11% | 6,1% |
+| 🇧🇷 Brazil | 90% | 51% | 33% | 20% | 11% | 5,8% |
+| 🇲🇦 Morocco | 87% | 50% | 32% | 18% | 11% | 5,7% |
+| 🇵🇹 Portugal | 80% | 52% | 30% | 17% | 9% | 4,8% |
+| 🇫🇷 France | 81% | 52% | 30% | 16% | 9% | 4,7% |
+| 🇨🇴 Colombia | 79% | 51% | 29% | 16% | 9% | 4,2% |
+
+*Simulación corrida con seed 2026 — reproducible y verificable.*
+
+---
+
 ## Cómo correrlo en local
 
 ### Requisitos
