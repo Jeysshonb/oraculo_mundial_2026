@@ -20,7 +20,7 @@
                 remainingProbability * (1.0 - expectedHome)).Normalize();
         }
 
-        public static ScorelineDistribution PoissonScoreline(double lambdaHome, double lambdaAway, int maxGoals = 8, double lowScoreRho = -0.06)
+        public static ScorelineDistribution PoissonScoreline(double lambdaHome, double lambdaAway, int maxGoals = 8, double lowScoreRho = 0.00)
         {
             lambdaHome = Math.Clamp(lambdaHome, 0.05, 6.0);
             lambdaAway = Math.Clamp(lambdaAway, 0.05, 6.0);

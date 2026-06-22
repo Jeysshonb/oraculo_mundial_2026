@@ -6,7 +6,13 @@ namespace OracuMundial2026.Web.Predictors
     public class GoalModel : IPredictor
     {
         private const double DefaultAverageGoals = 1.25;
-        private const double PriorMatches = 6.0;
+        private const double PriorMatches = 2.0;
+        private const double GoalScale = 1.10;
+        private const double LowScoreRho = 0.00;
+        private const double HomeAdvantageMultiplier = 1.08;
+        // Sanity-checked against bundled historical results; rerun tooling/goal_strength_calibration.py when revisiting.
+        private const double GoalStrengthMinMultiplier = 0.25;
+        private const double GoalStrengthMaxMultiplier = 3.5;
         private const int MinimumTeamMatches = 3;
         private const int Iterations = 8;
 
@@ -15,7 +21,7 @@ namespace OracuMundial2026.Web.Predictors
         protected readonly int _matchesUsed;
         protected readonly int _yearsWindow;
 
-        public GoalModel(IReadOnlyList<MatchResult> results, int yearsWindow = 3)
+        public GoalModel(IReadOnlyList<MatchResult> results, int yearsWindow = 8)
         {
             _yearsWindow = yearsWindow;
             (_strengths, _avgGoals, _matchesUsed) = Fit(results, yearsWindow);
@@ -27,7 +33,7 @@ namespace OracuMundial2026.Web.Predictors
         public virtual MatchPrediction Predict(MatchContext context)
         {
             var (homeGoals, awayGoals, degraded) = ExpectedGoals(context);
-            var scoreline = ProbabilityHelper.PoissonScoreline(homeGoals, awayGoals);
+            var scoreline = BuildScoreline(homeGoals, awayGoals);
             var mostLikely = scoreline.MostLikelyScoreline();
 
             return new MatchPrediction
@@ -64,11 +70,19 @@ namespace OracuMundial2026.Web.Predictors
             away ??= new GoalStrength();
 
             var degraded = !hasHome || !hasAway || home.Matches < MinimumTeamMatches || away.Matches < MinimumTeamMatches;
+            var homeGoals = _avgGoals * home.Attack * away.DefenseVulnerability * GoalScale;
+            var awayGoals = _avgGoals * away.Attack * home.DefenseVulnerability * GoalScale;
+            if (!context.Fixture.NeutralVenue)
+                homeGoals *= HomeAdvantageMultiplier;
+
             return (
-                Math.Clamp(_avgGoals * home.Attack * away.DefenseVulnerability, 0.1, 5.5),
-                Math.Clamp(_avgGoals * away.Attack * home.DefenseVulnerability, 0.1, 5.5),
+                Math.Clamp(homeGoals, 0.1, 5.5),
+                Math.Clamp(awayGoals, 0.1, 5.5),
                 degraded);
         }
+
+        public ScorelineDistribution BuildScoreline(double homeGoals, double awayGoals) =>
+            ProbabilityHelper.PoissonScoreline(homeGoals, awayGoals, lowScoreRho: LowScoreRho);
 
         private static (IReadOnlyDictionary<string, GoalStrength> Strengths, double AvgGoals, int MatchesUsed) Fit(IReadOnlyList<MatchResult> results, int yearsWindow)
         {
@@ -151,15 +165,15 @@ namespace OracuMundial2026.Web.Predictors
 
             var map = teams.ToDictionary(team => team, team => new GoalStrength
             {
-                Attack = Math.Clamp(attacks[team], 0.45, 2.25),
-                DefenseVulnerability = Math.Clamp(vulnerabilities[team], 0.45, 2.25),
+                Attack = Math.Clamp(attacks[team], GoalStrengthMinMultiplier, GoalStrengthMaxMultiplier),
+                DefenseVulnerability = Math.Clamp(vulnerabilities[team], GoalStrengthMinMultiplier, GoalStrengthMaxMultiplier),
                 Matches = matches[team]
             });
 
             return (map, avg, window.Count);
 
             static double ShrinkToNeutral(double value, double weight) =>
-                Math.Clamp(((value * weight) + PriorMatches) / (weight + PriorMatches), 0.45, 2.25);
+                Math.Clamp(((value * weight) + PriorMatches) / (weight + PriorMatches), GoalStrengthMinMultiplier, GoalStrengthMaxMultiplier);
 
             static void NormalizeMean(Dictionary<string, double> values)
             {

@@ -28,6 +28,12 @@ builder.Services.AddScoped<PredictionService>();
 builder.Services.AddScoped<EvaluationService>();
 builder.Services.AddScoped<SnapshotService>();
 builder.Services.AddScoped<SimulationService>();
+builder.Services.AddHttpClient<PlayerImpactService>((sp, client) =>
+{
+    var options = sp.GetRequiredService<Microsoft.Extensions.Options.IOptions<OracuMundial2026Config>>().Value;
+    client.Timeout = TimeSpan.FromSeconds(30);
+    client.DefaultRequestHeaders.UserAgent.ParseAdd(options.RankingRefreshUserAgent);
+});
 builder.Services.AddHttpClient<RankingRefreshService>((sp, client) =>
 {
     var options = sp.GetRequiredService<Microsoft.Extensions.Options.IOptions<OracuMundial2026Config>>().Value;
