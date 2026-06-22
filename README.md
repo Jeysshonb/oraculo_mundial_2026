@@ -2,42 +2,213 @@
 
 > Un oráculo del Mundial que funciona como huele.
 
-Aplicación web para predecir el Mundial de Fútbol 2026. Construida con .NET 9 y Blazor Server, usa una escalera de modelos estadísticos que va desde un baseline uniforme hasta un modelo de goles con corrección de Dixon-Coles, y corre más de 10.000 simulaciones Monte Carlo del torneo completo.
+App en .NET 9 + Blazor Server para predecir el Mundial 2026. Usa una escalera de modelos (FIFA, Elo, forma, goles) y corre +10.000 simulaciones Monte Carlo del torneo. Las predicciones se ajustan según goles, lesiones y rankings reales.
 
 ---
 
-## Probabilidades Monte Carlo — 10.000 simulaciones
+<!-- oracumundial2026:snapshots:start -->
+## Predicciones más recientes
+_A medida que se recibe nueva información y se juegan partidos reales, el Oráculo Mundial 2026 ajusta sus predicciones y las publica acá. A continuación vas a encontrar las más recientes._
 
-![Simulación Oráculo Mundial 2026](ganador_japon.png)
+### Torneo
 
-| Equipo | Clasifica | 16avos | 4tos | Semis | Final | Campeón |
-|---|---|---|---|---|---|---|
-| 🇯🇵 Japan | 92% | 60% | 43% | 29% | 19% | 11,2% |
-| 🇦🇷 Argentina | 90% | 60% | 42% | 28% | 17% | 10,8% |
-| 🇪🇸 Spain | 94% | 60% | 40% | 27% | 17% | 10,1% |
-| 🏴󠁧󠁢󠁥󠁮󠁧󠁿 England | 92% | 57% | 35% | 20% | 11% | 6,1% |
-| 🇧🇷 Brazil | 90% | 51% | 33% | 20% | 11% | 5,8% |
-| 🇲🇦 Morocco | 87% | 50% | 32% | 18% | 11% | 5,7% |
-| 🇵🇹 Portugal | 80% | 52% | 30% | 17% | 9% | 4,8% |
-| 🇫🇷 France | 81% | 52% | 30% | 16% | 9% | 4,7% |
-| 🇨🇴 Colombia | 79% | 51% | 29% | 16% | 9% | 4,2% |
+_Generado 2026-06-21 22:11 UTC a través de 10,000 simulaciones._
 
-*Seed 2026 — reproducible. Correlo vos mismo en `/torneo` para ver los números actualizados.*
+| Team | Group | Qualify | QF | SF | Final | Champion |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ar.svg" width="18" alt=""> Argentina | J | 100 % | 63 % | 48 % | 35 % | **24.1 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/es.svg" width="18" alt=""> Spain | H | 100 % | 45 % | 33 % | 21 % | **11.6 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/jp.svg" width="18" alt=""> Japan | F | 100 % | 44 % | 29 % | 17 % | **9.8 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ma.svg" width="18" alt=""> Morocco | C | 100 % | 41 % | 26 % | 15 % | **8.2 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/co.svg" width="18" alt=""> Colombia | K | 98 % | 52 % | 27 % | 15 % | **7.7 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gb-eng.svg" width="18" alt=""> England | L | 99 % | 41 % | 22 % | 11 % | **5.5 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/fr.svg" width="18" alt=""> France | I | 98 % | 40 % | 21 % | 10 % | **4.8 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/br.svg" width="18" alt=""> Brazil | C | 100 % | 32 % | 18 % | 9 % | **4.2 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/de.svg" width="18" alt=""> Germany | E | 100 % | 42 % | 19 % | 9 % | **3.4 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/pt.svg" width="18" alt=""> Portugal | K | 75 % | 28 % | 14 % | 7 % | **3.1 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/nl.svg" width="18" alt=""> Netherlands | F | 100 % | 27 % | 14 % | 6 % | **2.6 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/mx.svg" width="18" alt=""> Mexico | A | 100 % | 28 % | 11 % | 4 % | **1.6 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/us.svg" width="18" alt=""> United States | D | 100 % | 36 % | 13 % | 5 % | **1.5 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/au.svg" width="18" alt=""> Australia | D | 96 % | 18 % | 8 % | 3 % | **1.4 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/no.svg" width="18" alt=""> Norway | I | 97 % | 26 % | 11 % | 4 % | **1.4 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/be.svg" width="18" alt=""> Belgium | G | 76 % | 20 % | 8 % | 3 % | **1.1 %** |
+
+### Grupos
+
+<details open>
+<summary><strong>Group A</strong></summary>
+
+| Match | Status | Result / Pick | Why | H | D | A |
+| --- | --- | --- | --- | ---: | ---: | ---: |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/mx.svg" width="18" alt=""> Mexico vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/za.svg" width="18" alt=""> South Africa | FT | **2-0** <br><sub>Prediction: unavailable</sub> | No pre-game snapshot | - | - | - |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/kr.svg" width="18" alt=""> South Korea vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/cz.svg" width="18" alt=""> Czechia | FT | **2-1** <br><sub>Prediction: 2-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 49 % | 26 % | 25 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/za.svg" width="18" alt=""> South Africa vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/cz.svg" width="18" alt=""> Czechia | FT | **1-1** <br><sub>Prediction: 1-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 35 % | 27 % | 38 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/mx.svg" width="18" alt=""> Mexico vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/kr.svg" width="18" alt=""> South Korea | FT | **1-0** <br><sub>Prediction: 1-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 41 % | 28 % | 31 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/mx.svg" width="18" alt=""> Mexico vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/cz.svg" width="18" alt=""> Czechia | Jun 25 01:00 UTC | 2-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-0 | 57 % | 24 % | 19 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/za.svg" width="18" alt=""> South Africa vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/kr.svg" width="18" alt=""> South Korea | Jun 25 01:00 UTC | 1-2 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 0-1 | 23 % | 26 % | 51 % |
+
+</details>
+
+<details open>
+<summary><strong>Group B</strong></summary>
+
+| Match | Status | Result / Pick | Why | H | D | A |
+| --- | --- | --- | --- | ---: | ---: | ---: |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ca.svg" width="18" alt=""> Canada vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ba.svg" width="18" alt=""> Bosnia and Herzegovina | FT | **1-1** <br><sub>Prediction: 2-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 2-0 | 68 % | 21 % | 11 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/qa.svg" width="18" alt=""> Qatar vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ch.svg" width="18" alt=""> Switzerland | FT | **1-1** <br><sub>Prediction: 1-2</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-2 | 17 % | 20 % | 63 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ba.svg" width="18" alt=""> Bosnia and Herzegovina vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ch.svg" width="18" alt=""> Switzerland | FT | **1-4** <br><sub>Prediction: 1-2</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 0-2 | 11 % | 18 % | 71 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ca.svg" width="18" alt=""> Canada vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/qa.svg" width="18" alt=""> Qatar | FT | **6-0** <br><sub>Prediction: 2-1</sub> | Model: Or&#225;culo final (Goles + contexto reciente)<br>Signals: Modelo de goles, Disponibilidad de jugadores, Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, +3 more<br>Missing: alineaciones, cuotas | 59 % | 23 % | 18 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ba.svg" width="18" alt=""> Bosnia and Herzegovina vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/qa.svg" width="18" alt=""> Qatar | Jun 24 19:00 UTC | 1-2 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 33 % | 25 % | 42 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ca.svg" width="18" alt=""> Canada vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ch.svg" width="18" alt=""> Switzerland | Jun 24 19:00 UTC | 1-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 36 % | 27 % | 37 % |
+
+</details>
+
+<details open>
+<summary><strong>Group C</strong></summary>
+
+| Match | Status | Result / Pick | Why | H | D | A |
+| --- | --- | --- | --- | ---: | ---: | ---: |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/br.svg" width="18" alt=""> Brazil vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ma.svg" width="18" alt=""> Morocco | FT | **1-1** <br><sub>Prediction: 1-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 40 % | 27 % | 33 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ht.svg" width="18" alt=""> Haiti vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gb-sct.svg" width="18" alt=""> Scotland | FT | **0-1** <br><sub>Prediction: 1-2</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 34 % | 25 % | 40 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ma.svg" width="18" alt=""> Morocco vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gb-sct.svg" width="18" alt=""> Scotland | FT | **1-0** <br><sub>Prediction: 2-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-0 | 62 % | 25 % | 13 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/br.svg" width="18" alt=""> Brazil vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ht.svg" width="18" alt=""> Haiti | FT | **3-0** <br><sub>Prediction: 2-1</sub> | Model: Or&#225;culo final (Goles + contexto reciente)<br>Signals: Modelo de goles, Disponibilidad de jugadores, Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, +3 more<br>Missing: alineaciones, cuotas | 67 % | 18 % | 15 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/br.svg" width="18" alt=""> Brazil vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gb-sct.svg" width="18" alt=""> Scotland | Jun 24 22:00 UTC | 2-1 | Model: Or&#225;culo final (Goles + contexto reciente)<br>Signals: Modelo de goles, Disponibilidad de jugadores, Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, +3 more<br>Missing: alineaciones, cuotas<br>Bajas: Brazil: &#201;der Milit&#227;o (injury), Brazil: Est&#234;v&#227;o (injury), Brazil: Rodrygo (injury), +1 more | 60 % | 21 % | 19 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ma.svg" width="18" alt=""> Morocco vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ht.svg" width="18" alt=""> Haiti | Jun 24 22:00 UTC | 2-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-0 | 71 % | 20 % | 9 % |
+
+</details>
+
+<details open>
+<summary><strong>Group D</strong></summary>
+
+| Match | Status | Result / Pick | Why | H | D | A |
+| --- | --- | --- | --- | ---: | ---: | ---: |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/us.svg" width="18" alt=""> United States vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/py.svg" width="18" alt=""> Paraguay | FT | **4-1** <br><sub>Prediction: 1-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 48 % | 27 % | 25 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/au.svg" width="18" alt=""> Australia vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/tr.svg" width="18" alt=""> Turkey | FT | **2-0** <br><sub>Prediction: 2-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1, +1 more | 47 % | 26 % | 27 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/us.svg" width="18" alt=""> United States vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/au.svg" width="18" alt=""> Australia | FT | **2-0** <br><sub>Prediction: 1-1</sub> | Model: Or&#225;culo final (Goles + contexto reciente)<br>Signals: Modelo de goles, Disponibilidad de jugadores, Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, +3 more<br>Missing: alineaciones, cuotas | 29 % | 26 % | 45 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/py.svg" width="18" alt=""> Paraguay vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/tr.svg" width="18" alt=""> Turkey | FT | **1-0** <br><sub>Prediction: 1-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1, +1 more | 36 % | 29 % | 35 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/py.svg" width="18" alt=""> Paraguay vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/au.svg" width="18" alt=""> Australia | Jun 26 02:00 UTC | 1-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 0-1 | 25 % | 31 % | 44 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/us.svg" width="18" alt=""> United States vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/tr.svg" width="18" alt=""> Turkey | Jun 26 02:00 UTC | 2-1 | Model: Or&#225;culo final (Goles + contexto reciente)<br>Signals: Modelo de goles, Disponibilidad de jugadores, Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, +3 more<br>Missing: alineaciones, cuotas<br>Bajas: United States: Johnny Cardoso (injury) | 50 % | 23 % | 27 % |
+
+</details>
+
+<details open>
+<summary><strong>Group E</strong></summary>
+
+| Match | Status | Result / Pick | Why | H | D | A |
+| --- | --- | --- | --- | ---: | ---: | ---: |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/de.svg" width="18" alt=""> Germany vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/cw.svg" width="18" alt=""> Curacao | FT | **7-1** <br><sub>Prediction: 2-1</sub> | Model: Or&#225;culo final (Goles + contexto reciente)<br>Signals: Modelo de goles, Disponibilidad de jugadores, Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, +3 more<br>Missing: alineaciones, cuotas | 68 % | 18 % | 13 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ci.svg" width="18" alt=""> Ivory Coast vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ec.svg" width="18" alt=""> Ecuador | FT | **1-0** <br><sub>Prediction: 1-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 0-0, +1 more | 34 % | 32 % | 34 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/de.svg" width="18" alt=""> Germany vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ci.svg" width="18" alt=""> Ivory Coast | FT | **2-1** <br><sub>Prediction: 2-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 46 % | 26 % | 28 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/cw.svg" width="18" alt=""> Curacao vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ec.svg" width="18" alt=""> Ecuador | FT | **0-0** <br><sub>Prediction: 0-2</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 0-1 | 9 % | 21 % | 70 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/cw.svg" width="18" alt=""> Curacao vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ci.svg" width="18" alt=""> Ivory Coast | Jun 25 20:00 UTC | 1-2 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 0-1 | 13 % | 21 % | 66 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/de.svg" width="18" alt=""> Germany vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ec.svg" width="18" alt=""> Ecuador | Jun 25 20:00 UTC | 1-1 | Model: Or&#225;culo final (Goles + contexto reciente)<br>Signals: Modelo de goles, Disponibilidad de jugadores, Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, +4 more<br>Missing: alineaciones, cuotas<br>Bajas: Germany: Lennart Karl (injury), Germany: Serge Gnabry (injury) | 35 % | 32 % | 34 % |
+
+</details>
+
+<details open>
+<summary><strong>Group F</strong></summary>
+
+| Match | Status | Result / Pick | Why | H | D | A |
+| --- | --- | --- | --- | ---: | ---: | ---: |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/nl.svg" width="18" alt=""> Netherlands vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/jp.svg" width="18" alt=""> Japan | FT | **2-2** <br><sub>Prediction: 1-2</sub> | Model: Or&#225;culo final (Goles + contexto reciente)<br>Signals: Modelo de goles, Disponibilidad de jugadores, Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, +4 more<br>Missing: alineaciones, cuotas | 35 % | 27 % | 38 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/se.svg" width="18" alt=""> Sweden vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/tn.svg" width="18" alt=""> Tunisia | FT | **5-1** <br><sub>Prediction: 1-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1, +1 more | 33 % | 28 % | 38 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/nl.svg" width="18" alt=""> Netherlands vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/se.svg" width="18" alt=""> Sweden | FT | **5-1** <br><sub>Prediction: 2-1</sub> | Model: Or&#225;culo final (Goles + contexto reciente)<br>Signals: Modelo de goles, Disponibilidad de jugadores, Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, +3 more<br>Missing: alineaciones, cuotas | 63 % | 18 % | 19 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/jp.svg" width="18" alt=""> Japan vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/tn.svg" width="18" alt=""> Tunisia | FT | **4-0** <br><sub>Prediction: 2-1</sub> | Model: Or&#225;culo final (Goles + contexto reciente)<br>Signals: Modelo de goles, Disponibilidad de jugadores, Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, +3 more<br>Missing: alineaciones, cuotas | 67 % | 22 % | 12 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/jp.svg" width="18" alt=""> Japan vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/se.svg" width="18" alt=""> Sweden | Jun 25 23:00 UTC | 3-1 | Model: Or&#225;culo final (Goles + contexto reciente)<br>Signals: Modelo de goles, Disponibilidad de jugadores, Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, +3 more<br>Missing: alineaciones, cuotas<br>Bajas: Japan: Kaoru Mitoma (injury) | 78 % | 13 % | 9 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/nl.svg" width="18" alt=""> Netherlands vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/tn.svg" width="18" alt=""> Tunisia | Jun 25 23:00 UTC | 2-1 | Model: Or&#225;culo final (Goles + contexto reciente)<br>Signals: Modelo de goles, Disponibilidad de jugadores, Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, +3 more<br>Missing: alineaciones, cuotas<br>Bajas: Netherlands: Jurri&#235;n Timber (injury), Netherlands: Xavi Simons (injury) | 63 % | 22 % | 15 % |
+
+</details>
+
+<details open>
+<summary><strong>Group G</strong></summary>
+
+| Match | Status | Result / Pick | Why | H | D | A |
+| --- | --- | --- | --- | ---: | ---: | ---: |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/be.svg" width="18" alt=""> Belgium vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/eg.svg" width="18" alt=""> Egypt | FT | **1-1** <br><sub>Prediction: 1-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-0 | 47 % | 28 % | 25 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ir.svg" width="18" alt=""> Iran vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/nz.svg" width="18" alt=""> New Zealand | FT | **2-2** <br><sub>Prediction: 2-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 52 % | 25 % | 23 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/be.svg" width="18" alt=""> Belgium vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ir.svg" width="18" alt=""> Iran | FT | **0-0** <br><sub>Prediction: 1-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 39 % | 26 % | 35 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/eg.svg" width="18" alt=""> Egypt vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/nz.svg" width="18" alt=""> New Zealand | Jun 22 01:00 UTC | 1-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 40 % | 28 % | 31 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/be.svg" width="18" alt=""> Belgium vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/nz.svg" width="18" alt=""> New Zealand | Jun 27 03:00 UTC | 2-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 51 % | 24 % | 24 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/eg.svg" width="18" alt=""> Egypt vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ir.svg" width="18" alt=""> Iran | Jun 27 03:00 UTC | 1-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 0-1 | 29 % | 30 % | 42 % |
+
+</details>
+
+<details open>
+<summary><strong>Group H</strong></summary>
+
+| Match | Status | Result / Pick | Why | H | D | A |
+| --- | --- | --- | --- | ---: | ---: | ---: |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/es.svg" width="18" alt=""> Spain vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/cv.svg" width="18" alt=""> Cape Verde | FT | **0-0** <br><sub>Prediction: 2-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 2-0 | 68 % | 20 % | 12 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/sa.svg" width="18" alt=""> Saudi Arabia vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/uy.svg" width="18" alt=""> Uruguay | FT | **1-1** <br><sub>Prediction: 1-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 0-1 | 22 % | 31 % | 47 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/es.svg" width="18" alt=""> Spain vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/sa.svg" width="18" alt=""> Saudi Arabia | FT | **4-0** <br><sub>Prediction: 2-1</sub> | Model: Or&#225;culo final (Goles + contexto reciente)<br>Signals: Modelo de goles, Disponibilidad de jugadores, Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, +3 more<br>Missing: alineaciones, cuotas | 72 % | 18 % | 9 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/cv.svg" width="18" alt=""> Cape Verde vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/uy.svg" width="18" alt=""> Uruguay | Jun 21 22:00 UTC | 1-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 0-1 | 15 % | 28 % | 57 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/cv.svg" width="18" alt=""> Cape Verde vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/sa.svg" width="18" alt=""> Saudi Arabia | Jun 27 00:00 UTC | 1-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 0-1 | 31 % | 31 % | 37 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/es.svg" width="18" alt=""> Spain vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/uy.svg" width="18" alt=""> Uruguay | Jun 27 00:00 UTC | 1-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-0 | 51 % | 28 % | 21 % |
+
+</details>
+
+<details open>
+<summary><strong>Group I</strong></summary>
+
+| Match | Status | Result / Pick | Why | H | D | A |
+| --- | --- | --- | --- | ---: | ---: | ---: |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/fr.svg" width="18" alt=""> France vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/sn.svg" width="18" alt=""> Senegal | FT | **3-1** <br><sub>Prediction: 1-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 45 % | 27 % | 28 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/iq.svg" width="18" alt=""> Iraq vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/no.svg" width="18" alt=""> Norway | FT | **1-4** <br><sub>Prediction: 1-2</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 0-1 | 21 % | 25 % | 54 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/fr.svg" width="18" alt=""> France vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/iq.svg" width="18" alt=""> Iraq | Jun 22 21:00 UTC | 2-1 | Model: Or&#225;culo final (Goles + contexto reciente)<br>Signals: Modelo de goles, Disponibilidad de jugadores, Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, +3 more<br>Missing: alineaciones, cuotas<br>Bajas: France: Hugo Ekitik&#233; (injury) | 64 % | 22 % | 14 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/sn.svg" width="18" alt=""> Senegal vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/no.svg" width="18" alt=""> Norway | Jun 23 00:00 UTC | 1-2 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 34 % | 24 % | 42 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/fr.svg" width="18" alt=""> France vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/no.svg" width="18" alt=""> Norway | Jun 26 19:00 UTC | 2-1 | Model: Or&#225;culo final (Goles + contexto reciente)<br>Signals: Modelo de goles, Disponibilidad de jugadores, Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, +3 more<br>Missing: alineaciones, cuotas<br>Bajas: France: Hugo Ekitik&#233; (injury) | 46 % | 24 % | 31 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/sn.svg" width="18" alt=""> Senegal vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/iq.svg" width="18" alt=""> Iraq | Jun 26 19:00 UTC | 2-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-0 | 53 % | 26 % | 21 % |
+
+</details>
+
+<details open>
+<summary><strong>Group J</strong></summary>
+
+| Match | Status | Result / Pick | Why | H | D | A |
+| --- | --- | --- | --- | ---: | ---: | ---: |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ar.svg" width="18" alt=""> Argentina vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/dz.svg" width="18" alt=""> Algeria | FT | **3-0** <br><sub>Prediction: 2-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-0 | 60 % | 24 % | 16 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/at.svg" width="18" alt=""> Austria vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/jo.svg" width="18" alt=""> Jordan | FT | **3-1** <br><sub>Prediction: 2-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 55 % | 23 % | 22 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ar.svg" width="18" alt=""> Argentina vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/at.svg" width="18" alt=""> Austria | Jun 22 17:00 UTC | 2-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-0 | 61 % | 24 % | 14 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/dz.svg" width="18" alt=""> Algeria vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/jo.svg" width="18" alt=""> Jordan | Jun 23 03:00 UTC | 2-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 58 % | 21 % | 20 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/dz.svg" width="18" alt=""> Algeria vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/at.svg" width="18" alt=""> Austria | Jun 28 02:00 UTC | 1-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 36 % | 28 % | 36 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ar.svg" width="18" alt=""> Argentina vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/jo.svg" width="18" alt=""> Jordan | Jun 28 02:00 UTC | 3-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 2-0 | 82 % | 12 % | 6 % |
+
+</details>
+
+<details open>
+<summary><strong>Group K</strong></summary>
+
+| Match | Status | Result / Pick | Why | H | D | A |
+| --- | --- | --- | --- | ---: | ---: | ---: |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/pt.svg" width="18" alt=""> Portugal vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/cd.svg" width="18" alt=""> Congo DR | FT | **1-1** <br><sub>Prediction: 1-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-0 | 48 % | 30 % | 22 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/uz.svg" width="18" alt=""> Uzbekistan vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/co.svg" width="18" alt=""> Colombia | FT | **1-3** <br><sub>Prediction: 1-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 0-1 | 20 % | 26 % | 54 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/pt.svg" width="18" alt=""> Portugal vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/uz.svg" width="18" alt=""> Uzbekistan | Jun 23 17:00 UTC | 2-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-0 | 52 % | 26 % | 22 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/cd.svg" width="18" alt=""> Congo DR vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/co.svg" width="18" alt=""> Colombia | Jun 24 02:00 UTC | 1-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 0-1 | 19 % | 29 % | 53 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/cd.svg" width="18" alt=""> Congo DR vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/uz.svg" width="18" alt=""> Uzbekistan | Jun 27 23:30 UTC | 1-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 0-0 | 32 % | 38 % | 31 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/pt.svg" width="18" alt=""> Portugal vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/co.svg" width="18" alt=""> Colombia | Jun 27 23:30 UTC | 1-2 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 32 % | 24 % | 44 % |
+
+</details>
+
+<details open>
+<summary><strong>Group L</strong></summary>
+
+| Match | Status | Result / Pick | Why | H | D | A |
+| --- | --- | --- | --- | ---: | ---: | ---: |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gb-eng.svg" width="18" alt=""> England vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/hr.svg" width="18" alt=""> Croatia | FT | **4-2** <br><sub>Prediction: 1-1</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-0 | 48 % | 28 % | 24 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gh.svg" width="18" alt=""> Ghana vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/pa.svg" width="18" alt=""> Panama | FT | **1-0** <br><sub>Prediction: 1-2</sub> | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 30 % | 25 % | 45 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gb-eng.svg" width="18" alt=""> England vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gh.svg" width="18" alt=""> Ghana | Jun 23 20:00 UTC | 2-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 2-0 | 71 % | 19 % | 10 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/hr.svg" width="18" alt=""> Croatia vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/pa.svg" width="18" alt=""> Panama | Jun 23 23:00 UTC | 2-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 54 % | 23 % | 23 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/hr.svg" width="18" alt=""> Croatia vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gh.svg" width="18" alt=""> Ghana | Jun 27 21:00 UTC | 2-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-0 | 58 % | 23 % | 19 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gb-eng.svg" width="18" alt=""> England vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/pa.svg" width="18" alt=""> Panama | Jun 27 21:00 UTC | 2-1 | Model: Or&#225;culo final (Modelo de goles (Poisson))<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 2-0 | 67 % | 20 % | 13 % |
+
+</details>
+<!-- oracumundial2026:snapshots:end -->
 
 ---
 
 ## Cómo correrlo en local
 
-### Requisitos
-
-- [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
-
-Verificá que lo tenés instalado:
-```
-dotnet --version
-```
-
-### Clonar y correr
+Requisitos: [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
 
 ```bash
 git clone https://github.com/Jeysshonb/oraculo_mundial_2026.git
@@ -46,140 +217,27 @@ dotnet restore
 dotnet run --project OracuMundial2026.Web
 ```
 
-La primera vez tarda un poco — restaura paquetes, crea la base de datos SQLite e importa los datos de seed. Cuando veas esto en la consola, está listo:
-
-```
-Now listening on: http://localhost:5000
-```
-
-Abrí el navegador en `http://localhost:5000`.
-
----
+Abrí `http://localhost:5235` cuando veas `Now listening on...`.
 
 ## Cómo hacer tus predicciones
 
-### Paso 1 — Actualizar los datos de rankings (opcional pero recomendado)
-
-Al iniciar, la app intenta refrescar automáticamente los rankings FIFA y Elo desde internet (`RankingRefreshOnStartup: true`). Si querés forzar la actualización manualmente:
-
-1. Andá a **`/datos`** (menú "Datos")
-2. Hacé clic en **"Actualizar rankings"**
-
-Esto descarga los últimos rankings FIFA y ratings Elo y los guarda en los CSVs locales.
-
-### Paso 2 — Ver las predicciones de los partidos
-
-1. Andá a **`/partidos`** (menú "Partidos")
-2. Vas a ver todos los fixtures del grupo con las predicciones del oráculo
-3. Cada partido muestra la predicción del modelo más completo disponible (escalera de modelos)
-4. Podés guardar un snapshot de las predicciones actuales con el botón **"Guardar snapshot"**
-
-### Paso 3 — Comparar dos equipos en el Laboratorio
-
-1. Andá a **`/lab`** (menú "Laboratorio")
-2. Seleccioná los dos equipos que querés comparar
-3. Vas a ver cómo cada nivel de la escalera predice ese partido:
-   - **Nivel 0** — Baseline uniforme (50/50)
-   - **Nivel 1** — Rankings FIFA
-   - **Nivel 2** — Ratings Elo
-   - **Nivel 3** — Forma reciente
-   - **Nivel 4** — Modelo de goles (Poisson + Dixon-Coles)
-   - **Nivel 5** — Modelo de goles + disponibilidad de jugadores
-   - **Oráculo final** — El nivel más alto usable con calibración Elo/FIFA
-
-### Paso 4 — Simular el torneo completo
-
-1. Andá a **`/torneo`** (menú "Torneo")
-2. Hacé clic en **"Correr simulación"**
-3. La app corre 10.000 simulaciones Monte Carlo y te muestra la probabilidad de que cada equipo gane el torneo, llegue a semifinales, etc.
-4. Podés guardar esa proyección como snapshot para comparar después
-
-### Paso 5 — Cargar resultados reales y evaluar
-
-Cuando se jueguen los partidos:
-
-1. En **`/partidos`**, buscá el partido jugado y cargá el resultado (goles local/visitante)
-2. Andá a **`/rendimiento`** para ver qué tan bien predijo el oráculo:
-   - **Brier score** — error cuadrático medio de las probabilidades
-   - **RPS** — Ranked Probability Score
-   - **Log loss** — pérdida logarítmica
-   - **Precisión top-pick** — cuántas veces acertó el resultado predicho
-
-### Paso 6 — Noticias de lesiones y disponibilidad (opcional)
-
-Si tenés una API key de OpenRouter:
-
-1. En **`/datos`**, hacé clic en **"Actualizar disponibilidad"**
-2. La app scrapea ESPN y TalkSport, clasifica las noticias de lesiones y ajusta las predicciones automáticamente
-
-Sin la key, las predicciones igual funcionan — solo no consideran lesiones.
-
----
-
-## Configuración de claves API (opcional)
-
-Las keys van en `OracuMundial2026.Web/appsettings.Development.json` (no en el repo):
-
-```json
-{
-  "OracuMundial2026": {
-    "ApiFootballApiKey": "tu-key-de-api-football",
-    "OpenRouterApiKey": "tu-key-de-openrouter"
-  }
-}
-```
-
-Sin estas keys la app funciona igual — solo perdés el refresco automático de fixtures y el análisis de lesiones.
-
----
-
-## Pantallas disponibles
-
-| Ruta | Descripción |
-|---|---|
-| `/` | Vista general y escalera de modelos |
-| `/lab` | Comparar dos equipos en la escalera |
-| `/partidos` | Fixtures, predicciones y carga de resultados |
-| `/fixture` | Fixture completo del torneo |
-| `/torneo` | Simulación Monte Carlo del torneo |
-| `/torneo/snapshots` | Proyecciones guardadas |
-| `/rendimiento` | Métricas de evaluación |
-| `/datos` | Importar CSVs, refrescar rankings y disponibilidad |
-
----
+1. **`/datos`** → "Actualizar rankings" para traer FIFA/Elo al día.
+2. **`/partidos`** → predicciones de cada partido del grupo.
+3. **`/lab`** → comparar dos equipos en toda la escalera de modelos.
+4. **`/torneo`** → "Correr simulación" para ver probabilidades de campeón (10.000 simulaciones).
+5. **`/rendimiento`** → qué tan bien predijo (Brier, RPS, log loss, top-pick).
 
 ## Stack
 
-| Tecnología | Uso |
-|---|---|
-| .NET 9 + Blazor Server | Framework y UI |
-| MudBlazor | Componentes Material Design |
-| Entity Framework Core 9 + SQLite | Base de datos |
-| CsvHelper | Parseo de seed data |
-| xUnit | Tests |
-| API-Football | Datos de fixtures y contexto (opcional) |
-| OpenRouter | Clasificación de lesiones (opcional) |
+.NET 9 · Blazor Server · MudBlazor · EF Core 9 · SQLite · CsvHelper · xUnit · API-Football (opcional) · OpenRouter (opcional)
 
----
-
-## Estructura del proyecto
+## Estructura
 
 ```
 OracuMundial2026.sln
-OracuMundial2026.Web/
-  Components/       Páginas Blazor, layout y UI compartida
-  DAL/              DbContext de EF Core
-  Data/             CSVs de seed data
-  Helpers/          Parseo CSV, normalización de nombres, helpers
-  Models/           Modelos de dominio, CSV, API y evaluación
-  Predictors/       Escalera de modelos y selector final
-  Probability/      Matemática de probabilidades y métricas
-  Services/         Importación, predicción, rankings, API, simulación
-    Simulation/     Bracket del Mundial 2026 y motor Monte Carlo
-OracuMundial2026.Web.Tests/   Tests unitarios xUnit
+OracuMundial2026.Web/        App: Components, DAL, Data, Helpers, Models, Predictors, Probability, Services
+OracuMundial2026.Web.Tests/  Tests xUnit
 ```
-
----
 
 ## Tests
 
@@ -187,15 +245,6 @@ OracuMundial2026.Web.Tests/   Tests unitarios xUnit
 dotnet test
 ```
 
----
+## Datos
 
-## Datos de seed
-
-CSVs en `OracuMundial2026.Web/Data/`:
-
-| Archivo | Contenido |
-|---|---|
-| `wc2026_groups.csv` | Grupos y equipos del torneo |
-| `historical_results.csv` | Resultados históricos de selecciones |
-| `fifa_rankings.csv` | Snapshot de rankings FIFA |
-| `elo_snapshot.csv` | Snapshot de ratings Elo |
+CSVs en `OracuMundial2026.Web/Data/`: grupos, resultados históricos, goleadores, rankings FIFA y Elo.
