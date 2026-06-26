@@ -36,6 +36,47 @@ namespace OracuMundial2026.Web.Services
 
             if (needsImport)
                 await ImportAllAsync(ct);
+
+            await ImportPlayedResultsAsync(ct);
+        }
+
+        // Aplica los resultados reales ya jugados (played_results.csv) a los fixtures del torneo.
+        // Es la fuente gratuita de marcadores reales: cada fila marca el partido como jugado.
+        public async Task<int> ImportPlayedResultsAsync(CancellationToken ct = default)
+        {
+            var path = FullPath(OracuMundial2026DataFiles.PlayedResultsCsv);
+            if (!File.Exists(path))
+                return 0;
+
+            var rows = CsvParsingHelper.ReadCsv<PlayedResultCsvRow>(path);
+            var fixtures = await _db.Fixtures.ToListAsync(ct);
+            var byPair = fixtures
+                .GroupBy(f => (f.HomeTeamId, f.AwayTeamId))
+                .ToDictionary(g => g.Key, g => g.First());
+
+            var applied = 0;
+            foreach (var row in rows)
+            {
+                if (!int.TryParse(row.HomeGoals, out var home) || !int.TryParse(row.AwayGoals, out var away))
+                    continue;
+
+                var homeId = TeamNameNormalizer.ToId(row.HomeTeam);
+                var awayId = TeamNameNormalizer.ToId(row.AwayTeam);
+                if (!byPair.TryGetValue((homeId, awayId), out var fixture))
+                    continue;
+
+                fixture.IsPlayed = true;
+                fixture.HomeGoals = home;
+                fixture.AwayGoals = away;
+                if (string.IsNullOrWhiteSpace(fixture.Status))
+                    fixture.Status = "FT";
+                applied++;
+            }
+
+            if (applied > 0)
+                await _db.SaveChangesAsync(ct);
+
+            return applied;
         }
 
         public async Task<CsvImportReport> ImportAllAsync(CancellationToken ct = default)

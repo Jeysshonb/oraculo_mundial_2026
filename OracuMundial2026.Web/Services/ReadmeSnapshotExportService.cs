@@ -291,6 +291,14 @@ namespace OracuMundial2026.Web.Services
                     }
                 }
 
+                // Sin snapshot pre-partido: usamos la predicción actual del modelo.
+                // El modelo no usa los resultados del torneo, así que equivale a la predicción pre-partido.
+                if (freshByFixture.TryGetValue(fixture.Id, out var freshPlayed))
+                {
+                    rows.Add(new ReadmePredictionRow(freshPlayed, HasPrediction: true));
+                    continue;
+                }
+
                 rows.Add(new ReadmePredictionRow(UnavailablePredictionResult(fixture, teamNames), HasPrediction: false));
             }
 

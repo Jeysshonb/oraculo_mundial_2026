@@ -21,26 +21,31 @@ jobs:
         with:
           dotnet-version: "9.0.x"
 
+      - name: Traer resultados reales (gratis, fuente pública)
+        run: |
+          curl -s "https://raw.githubusercontent.com/MarianoVilla/Oloraculo/main/README.md" -o /tmp/up.md
+          echo "HomeTeam,AwayTeam,HomeGoals,AwayGoals" > OracuMundial2026.Web/Data/played_results.csv
+          grep "| FT |" /tmp/up.md \
+            | sed -E 's/<img[^>]*>//g; s/\*\*//g' \
+            | sed -E "s/^\| *([A-Za-z .'-]+) vs ([A-Za-z .'-]+) \| FT \| ([0-9]+)-([0-9]+).*/\1|\2|\3|\4/" \
+            | awk -F'|' '{gsub(/^ +| +$/,"",$1); gsub(/^ +| +$/,"",$2); print $1","$2","$3","$4}' \
+            >> OracuMundial2026.Web/Data/played_results.csv
+          echo "Resultados reales:" && wc -l OracuMundial2026.Web/Data/played_results.csv
+
       - name: Restaurar paquetes
         run: dotnet restore OracuMundial2026.sln
 
       - name: Generar predicciones y reescribir README
-        env:
-          # Resultados reales automáticos (key gratis de api-football.com).
-          # Cargá el secret en Settings -> Secrets and variables -> Actions.
-          OracuMundial2026__ApiFootballApiKey: ${{ secrets.API_FOOTBALL_KEY }}
-          # Opcional: clasificación de lesiones con OpenRouter.
-          OracuMundial2026__OpenRouterApiKey: ${{ secrets.OPENROUTER_KEY }}
         run: dotnet run --project OracuMundial2026.Web -c Release -- --export-readme-snapshots
 
-      - name: Commitear si cambió el README
+      - name: Commitear si cambió algo
         run: |
           git config user.name "Jeysshonb"
           git config user.email "Jeysshon@outlook.com"
-          if [ -n "$(git status --porcelain README.md)" ]; then
-            git add README.md
+          if [ -n "$(git status --porcelain README.md OracuMundial2026.Web/Data/played_results.csv)" ]; then
+            git add README.md OracuMundial2026.Web/Data/played_results.csv
             git commit -m "Actualiza predicciones"
             git push
           else
-            echo "Sin cambios en las predicciones."
+            echo "Sin cambios."
           fi

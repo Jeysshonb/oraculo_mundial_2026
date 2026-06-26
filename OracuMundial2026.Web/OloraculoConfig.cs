@@ -37,5 +37,6 @@
         public const string FifaRankingsCsv = "fifa_rankings.csv";
         public const string HistoricalResultsCsv = "historical_results.csv";
         public const string GoalscorersCsv = "goalscorers.csv";
+        public const string PlayedResultsCsv = "played_results.csv";
     }
 }
