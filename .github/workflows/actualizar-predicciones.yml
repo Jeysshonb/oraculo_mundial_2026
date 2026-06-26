@@ -1,0 +1,40 @@
+name: Actualizar predicciones
+
+# Corre solo cada 6 horas, o cuando lo dispares a mano desde la pestaña Actions.
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repo
+        uses: actions/checkout@v4
+
+      - name: Instalar .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "9.0.x"
+
+      - name: Restaurar paquetes
+        run: dotnet restore OracuMundial2026.sln
+
+      - name: Generar predicciones y reescribir README
+        run: dotnet run --project OracuMundial2026.Web -c Release -- --export-readme-snapshots
+
+      - name: Commitear si cambió el README
+        run: |
+          git config user.name "Jeysshonb"
+          git config user.email "Jeysshon@outlook.com"
+          if [ -n "$(git status --porcelain README.md)" ]; then
+            git add README.md
+            git commit -m "Actualiza predicciones"
+            git push
+          else
+            echo "Sin cambios en las predicciones."
+          fi

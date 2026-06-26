@@ -28,6 +28,7 @@ builder.Services.AddScoped<PredictionService>();
 builder.Services.AddScoped<EvaluationService>();
 builder.Services.AddScoped<SnapshotService>();
 builder.Services.AddScoped<SimulationService>();
+builder.Services.AddScoped<ReadmeSnapshotExportService>();
 builder.Services.AddHttpClient<PlayerImpactService>((sp, client) =>
 {
     var options = sp.GetRequiredService<Microsoft.Extensions.Options.IOptions<OracuMundial2026Config>>().Value;
@@ -45,7 +46,7 @@ builder.Services.AddHttpClient<ApiFootballService>((sp, client) =>
     var options = sp.GetRequiredService<Microsoft.Extensions.Options.IOptions<OracuMundial2026Config>>().Value;
     client.BaseAddress = new Uri(options.ApiFootballBaseUrl);
     client.Timeout = TimeSpan.FromSeconds(45);
-    client.DefaultRequestHeaders.Add("User-Agent", "Oráculo Mundial 2026");
+    client.DefaultRequestHeaders.Add("User-Agent", "OracuMundial2026");
     if (!string.IsNullOrWhiteSpace(options.ApiFootballApiKey))
     {
         client.DefaultRequestHeaders.Add("x-apisports-key", options.ApiFootballApiKey);
@@ -60,12 +61,13 @@ builder.Services.AddHttpClient<AvailabilityNewsService>((sp, client) =>
 });
 
 var app = builder.Build();
+var exportReadmeSnapshots = args.Any(arg => string.Equals(arg, "--export-readme-snapshots", StringComparison.OrdinalIgnoreCase));
 
 using (var Scope = app.Services.CreateScope())
 {
     var Config = Scope.ServiceProvider.GetRequiredService<Microsoft.Extensions.Options.IOptions<OracuMundial2026Config>>().Value;
     var CsvImporterService = Scope.ServiceProvider.GetRequiredService<CsvImportService>();
-    if (Config.RankingRefreshOnStartup)
+    if (Config.RankingRefreshOnStartup && !exportReadmeSnapshots)
     {
         try
         {
@@ -96,6 +98,14 @@ using (var Scope = app.Services.CreateScope())
     }
 
     await CsvImporterService.ImportIfNeededAsync();
+}
+
+if (exportReadmeSnapshots)
+{
+    using var scope = app.Services.CreateScope();
+    var exporter = scope.ServiceProvider.GetRequiredService<ReadmeSnapshotExportService>();
+    await exporter.ExportAsync();
+    return;
 }
 
 // Configure the HTTP request pipeline.
