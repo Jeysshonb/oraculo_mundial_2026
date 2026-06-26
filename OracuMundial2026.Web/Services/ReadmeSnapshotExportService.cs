@@ -565,10 +565,15 @@ namespace OracuMundial2026.Web.Services
         private static string StatusText(Fixture fixture)
         {
             if (fixture.IsPlayed)
-                return string.IsNullOrWhiteSpace(fixture.Status) ? "Final" : Escape(fixture.Status);
+            {
+                var label = string.IsNullOrWhiteSpace(fixture.Status) ? "FT" : Escape(fixture.Status);
+                if (fixture.KickoffUtc.HasValue)
+                    return $"{label} · {Escape(fixture.KickoffUtc.Value.UtcDateTime.ToString("d MMM yyyy", CultureInfo.InvariantCulture))}";
+                return label;
+            }
 
             if (fixture.KickoffUtc.HasValue)
-                return Escape(fixture.KickoffUtc.Value.UtcDateTime.ToString("MMM d HH:mm 'UTC'", CultureInfo.InvariantCulture));
+                return Escape(fixture.KickoffUtc.Value.UtcDateTime.ToString("d MMM HH:mm 'UTC'", CultureInfo.InvariantCulture));
 
             return "Programado";
         }

@@ -38,5 +38,6 @@
         public const string HistoricalResultsCsv = "historical_results.csv";
         public const string GoalscorersCsv = "goalscorers.csv";
         public const string PlayedResultsCsv = "played_results.csv";
+        public const string FixtureScheduleCsv = "fixture_schedule.csv";
     }
 }

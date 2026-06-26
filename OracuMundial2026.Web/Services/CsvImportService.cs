@@ -37,7 +37,62 @@ namespace OracuMundial2026.Web.Services
             if (needsImport)
                 await ImportAllAsync(ct);
 
+            await ImportScheduleAsync(ct);
             await ImportPlayedResultsAsync(ct);
+        }
+
+        // Aplica el calendario (fixture_schedule.csv) a los fixtures: setea la fecha/hora de cada partido.
+        // Se acumula con el tiempo, así que cada partido conserva su fecha aunque ya se haya jugado.
+        public async Task<int> ImportScheduleAsync(CancellationToken ct = default)
+        {
+            var path = FullPath(OracuMundial2026DataFiles.FixtureScheduleCsv);
+            if (!File.Exists(path))
+                return 0;
+
+            var rows = CsvParsingHelper.ReadCsv<FixtureScheduleCsvRow>(path);
+            var fixtures = await _db.Fixtures.ToListAsync(ct);
+            var byPair = fixtures
+                .GroupBy(f => (f.HomeTeamId, f.AwayTeamId))
+                .ToDictionary(g => g.Key, g => g.First());
+
+            var applied = 0;
+            foreach (var row in rows)
+            {
+                if (!TryParseKickoff(row.Kickoff, out var kickoff))
+                    continue;
+
+                var homeId = TeamNameNormalizer.ToId(row.HomeTeam);
+                var awayId = TeamNameNormalizer.ToId(row.AwayTeam);
+                if (!byPair.TryGetValue((homeId, awayId), out var fixture))
+                    continue;
+
+                fixture.KickoffUtc = kickoff;
+                applied++;
+            }
+
+            if (applied > 0)
+                await _db.SaveChangesAsync(ct);
+
+            return applied;
+        }
+
+        // Parsea "Jun 27 23:30 UTC" (formato del calendario) a una fecha UTC. Asume el año en curso.
+        private static bool TryParseKickoff(string raw, out DateTimeOffset kickoff)
+        {
+            kickoff = default;
+            if (string.IsNullOrWhiteSpace(raw))
+                return false;
+
+            var cleaned = raw.Replace("UTC", "", StringComparison.OrdinalIgnoreCase).Trim();
+            var withYear = $"{cleaned} {DateTime.UtcNow.Year}";
+            if (DateTime.TryParseExact(withYear, "MMM d HH:mm yyyy", CultureInfo.InvariantCulture,
+                    DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal, out var parsed))
+            {
+                kickoff = new DateTimeOffset(parsed, TimeSpan.Zero);
+                return true;
+            }
+
+            return false;
         }
 
         // Aplica los resultados reales ya jugados (played_results.csv) a los fixtures del torneo.
