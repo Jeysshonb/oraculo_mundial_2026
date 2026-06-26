@@ -25,6 +25,12 @@ jobs:
         run: dotnet restore OracuMundial2026.sln
 
       - name: Generar predicciones y reescribir README
+        env:
+          # Resultados reales automáticos (key gratis de api-football.com).
+          # Cargá el secret en Settings -> Secrets and variables -> Actions.
+          OracuMundial2026__ApiFootballApiKey: ${{ secrets.API_FOOTBALL_KEY }}
+          # Opcional: clasificación de lesiones con OpenRouter.
+          OracuMundial2026__OpenRouterApiKey: ${{ secrets.OPENROUTER_KEY }}
         run: dotnet run --project OracuMundial2026.Web -c Release -- --export-readme-snapshots
 
       - name: Commitear si cambió el README
