@@ -164,7 +164,7 @@ namespace OracuMundial2026.Web.Services
             builder.AppendLine();
             builder.AppendLine($"_Generado {generatedAt.UtcDateTime:yyyy-MM-dd HH:mm} UTC a través de {projection.Simulations.ToString("N0", CultureInfo.InvariantCulture)} simulaciones._");
             builder.AppendLine();
-            builder.AppendLine("| Team | Group | Qualify | QF | SF | Final | Champion |");
+            builder.AppendLine("| Equipo | Grupo | Clasifica | 4tos | Semis | Final | Campeón |");
             builder.AppendLine("| --- | --- | ---: | ---: | ---: | ---: | ---: |");
             foreach (var team in projection.Teams.OrderByDescending(t => t.WinTournament).ThenBy(t => Name(teamNames, t.TeamId)).Take(16))
             {
@@ -181,7 +181,7 @@ namespace OracuMundial2026.Web.Services
                 builder.AppendLine("<details open>");
                 builder.AppendLine($"<summary><strong>Group {Escape(group.Key)}</strong></summary>");
                 builder.AppendLine();
-                builder.AppendLine("| Match | Status | Result / Pick | Why | H | D | A |");
+                builder.AppendLine("| Partido | Estado | Resultado / Predicción | Por qué | L | E | V |");
                 builder.AppendLine("| --- | --- | --- | --- | ---: | ---: | ---: |");
                 foreach (var row in OrderedPredictions(group))
                 {
@@ -312,11 +312,11 @@ namespace OracuMundial2026.Web.Services
 
         private static string ResultOrPickText(Fixture fixture, MatchPrediction prediction, bool hasPrediction)
         {
-            var predictionText = hasPrediction ? PredictionText(prediction) : "unavailable";
+            var predictionText = hasPrediction ? PredictionText(prediction) : "sin predicción";
             if (fixture.IsPlayed && fixture.HomeGoals.HasValue && fixture.AwayGoals.HasValue)
-                return $"**{fixture.HomeGoals}-{fixture.AwayGoals}** <br><sub>Prediction: {predictionText}</sub>";
+                return $"Real **{fixture.HomeGoals}-{fixture.AwayGoals}** <br><sub>Predicción: {predictionText}</sub>";
 
-            return predictionText;
+            return $"Predicción: {predictionText}";
         }
 
         private static MatchPredictionResult UnavailablePredictionResult(
@@ -562,7 +562,7 @@ namespace OracuMundial2026.Web.Services
             if (fixture.KickoffUtc.HasValue)
                 return Escape(fixture.KickoffUtc.Value.UtcDateTime.ToString("MMM d HH:mm 'UTC'", CultureInfo.InvariantCulture));
 
-            return "Scheduled";
+            return "Programado";
         }
 
         private static string TeamCell(string teamId, string teamName)
