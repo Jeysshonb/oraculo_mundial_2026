@@ -39,10 +39,14 @@ Belgium,Egypt,1,1
 Iran,New Zealand,2,2
 Belgium,Iran,0,0
 Egypt,New Zealand,3,1
+Belgium,New Zealand,5,1
+Egypt,Iran,1,1
 Spain,Cape Verde,0,0
 Saudi Arabia,Uruguay,1,1
 Spain,Saudi Arabia,4,0
 Cape Verde,Uruguay,2,2
+Cape Verde,Saudi Arabia,0,0
+Spain,Uruguay,1,0
 France,Senegal,3,1
 Iraq,Norway,1,4
 France,Iraq,3,0
