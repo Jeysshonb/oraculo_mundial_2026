@@ -56,26 +56,26 @@ _A medida que se recibe nueva información y se juegan partidos reales, el Olor�
 
 ### Torneo
 
-_Generado 2026-06-27 19:40 UTC a través de 10,000 simulaciones._
+_Generado 2026-06-28 04:42 UTC a través de 10,000 simulaciones._
 
 | Equipo | Grupo | Clasifica | 4tos | Semis | Final | Campeón |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ar.svg" width="18" alt=""> Argentina | J | 100 % | 77 % | 57 % | 41 % | **28.6 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ma.svg" width="18" alt=""> Morocco | C | 100 % | 51 % | 33 % | 20 % | **10.4 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/es.svg" width="18" alt=""> Spain | H | 100 % | 45 % | 33 % | 20 % | **9.9 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/jp.svg" width="18" alt=""> Japan | F | 100 % | 38 % | 24 % | 12 % | **6.8 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/co.svg" width="18" alt=""> Colombia | K | 100 % | 48 % | 23 % | 13 % | **6.2 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/br.svg" width="18" alt=""> Brazil | C | 100 % | 34 % | 21 % | 9 % | **5.3 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gb-eng.svg" width="18" alt=""> England | L | 100 % | 40 % | 22 % | 10 % | **5.3 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/pt.svg" width="18" alt=""> Portugal | K | 100 % | 36 % | 19 % | 10 % | **4.5 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/fr.svg" width="18" alt=""> France | I | 100 % | 43 % | 22 % | 11 % | **4.5 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/de.svg" width="18" alt=""> Germany | E | 100 % | 47 % | 21 % | 9 % | **3.2 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/nl.svg" width="18" alt=""> Netherlands | F | 100 % | 22 % | 11 % | 5 % | **1.9 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ec.svg" width="18" alt=""> Ecuador | E | 100 % | 28 % | 12 % | 4 % | **1.8 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/au.svg" width="18" alt=""> Australia | D | 100 % | 15 % | 7 % | 3 % | **1.3 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/sn.svg" width="18" alt=""> Senegal | I | 100 % | 25 % | 9 % | 3 % | **1.2 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/be.svg" width="18" alt=""> Belgium | G | 100 % | 28 % | 10 % | 4 % | **1.1 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/mx.svg" width="18" alt=""> Mexico | A | 100 % | 26 % | 9 % | 3 % | **1.1 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ar.svg" width="18" alt=""> Argentina | J | 100 % | 76 % | 57 % | 39 % | **27.4 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ma.svg" width="18" alt=""> Morocco | C | 100 % | 52 % | 34 % | 21 % | **10.7 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/es.svg" width="18" alt=""> Spain | H | 100 % | 47 % | 34 % | 21 % | **10.5 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/jp.svg" width="18" alt=""> Japan | F | 100 % | 39 % | 24 % | 12 % | **7.0 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/co.svg" width="18" alt=""> Colombia | K | 100 % | 51 % | 24 % | 13 % | **6.4 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gb-eng.svg" width="18" alt=""> England | L | 100 % | 45 % | 23 % | 10 % | **5.5 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/br.svg" width="18" alt=""> Brazil | C | 100 % | 33 % | 20 % | 9 % | **5.2 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/fr.svg" width="18" alt=""> France | I | 100 % | 44 % | 22 % | 12 % | **5.0 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/pt.svg" width="18" alt=""> Portugal | K | 100 % | 39 % | 19 % | 9 % | **4.2 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/de.svg" width="18" alt=""> Germany | E | 100 % | 46 % | 20 % | 9 % | **3.1 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ec.svg" width="18" alt=""> Ecuador | E | 100 % | 26 % | 11 % | 4 % | **1.8 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/nl.svg" width="18" alt=""> Netherlands | F | 100 % | 23 % | 11 % | 5 % | **1.7 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/be.svg" width="18" alt=""> Belgium | G | 100 % | 27 % | 10 % | 4 % | **1.3 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/sn.svg" width="18" alt=""> Senegal | I | 100 % | 24 % | 9 % | 4 % | **1.2 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/au.svg" width="18" alt=""> Australia | D | 100 % | 16 % | 7 % | 3 % | **1.2 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/mx.svg" width="18" alt=""> Mexico | A | 100 % | 25 % | 9 % | 3 % | **1.1 %** |
 
 ### Grupos
 
@@ -242,8 +242,8 @@ _Generado 2026-06-27 19:40 UTC a través de 10,000 simulaciones._
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gh.svg" width="18" alt=""> Ghana vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/pa.svg" width="18" alt=""> Panama | FT · 17 Jun 2026 | Real **1-0** <br><sub>Predicción: 1-1</sub> | Model: Or&#225;culo final<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 30 % | 26 % | 44 % |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gb-eng.svg" width="18" alt=""> England vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gh.svg" width="18" alt=""> Ghana | FT · 23 Jun 2026 | Real **0-0** <br><sub>Predicción: 2-1</sub> | Model: Or&#225;culo final<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 2-0 | 72 % | 19 % | 9 % |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/hr.svg" width="18" alt=""> Croatia vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/pa.svg" width="18" alt=""> Panama | FT · 23 Jun 2026 | Real **1-0** <br><sub>Predicción: 2-1</sub> | Model: Or&#225;culo final<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-0 | 56 % | 23 % | 21 % |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/hr.svg" width="18" alt=""> Croatia vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gh.svg" width="18" alt=""> Ghana | 27 Jun 21:00 UTC | Predicción: 2-1 | Model: Or&#225;culo final<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-0 | 61 % | 23 % | 16 % |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gb-eng.svg" width="18" alt=""> England vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/pa.svg" width="18" alt=""> Panama | 27 Jun 21:00 UTC | Predicción: 2-1 | Model: Or&#225;culo final<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 2-0 | 69 % | 19 % | 12 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/hr.svg" width="18" alt=""> Croatia vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gh.svg" width="18" alt=""> Ghana | FT · 27 Jun 2026 | Real **2-1** <br><sub>Predicción: 2-1</sub> | Model: Or&#225;culo final<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-0 | 61 % | 23 % | 16 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gb-eng.svg" width="18" alt=""> England vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/pa.svg" width="18" alt=""> Panama | FT · 27 Jun 2026 | Real **2-0** <br><sub>Predicción: 2-1</sub> | Model: Or&#225;culo final<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 2-0 | 69 % | 19 % | 12 % |
 
 </details>
 <!-- oracumundial2026:snapshots:end -->
