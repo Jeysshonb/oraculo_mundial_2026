@@ -56,7 +56,7 @@ _A medida que se recibe nueva información y se juegan partidos reales, el Olor�
 
 ### Torneo
 
-_Generado 2026-06-30 09:56 UTC a través de 10,000 simulaciones._
+_Generado 2026-06-30 14:36 UTC a través de 10,000 simulaciones._
 
 | Equipo | Grupo | Clasifica | 4tos | Semis | Final | Campeón |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
