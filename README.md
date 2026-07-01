@@ -56,7 +56,7 @@ _A medida que se recibe nueva información y se juegan partidos reales, el Olor�
 
 ### Torneo
 
-_Generado 2026-06-30 20:09 UTC a través de 10,000 simulaciones._
+_Generado 2026-07-01 04:46 UTC a través de 10,000 simulaciones._
 
 | Equipo | Grupo | Clasifica | 4tos | Semis | Final | Campeón |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
@@ -64,10 +64,10 @@ _Generado 2026-06-30 20:09 UTC a través de 10,000 simulaciones._
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/es.svg" width="18" alt=""> Spain | H | 100 % | 51 % | 37 % | 22 % | **11.5 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ma.svg" width="18" alt=""> Morocco | C | 100 % | 51 % | 33 % | 20 % | **10.2 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/co.svg" width="18" alt=""> Colombia | K | 100 % | 67 % | 28 % | 14 % | **7.7 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/jp.svg" width="18" alt=""> Japan | F | 100 % | 37 % | 23 % | 11 % | **6.2 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/jp.svg" width="18" alt=""> Japan | F | 100 % | 38 % | 23 % | 11 % | **6.2 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gb-eng.svg" width="18" alt=""> England | L | 100 % | 46 % | 24 % | 11 % | **5.6 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/br.svg" width="18" alt=""> Brazil | C | 100 % | 34 % | 21 % | 9 % | **5.4 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/fr.svg" width="18" alt=""> France | I | 100 % | 43 % | 23 % | 11 % | **4.6 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/fr.svg" width="18" alt=""> France | I | 100 % | 43 % | 23 % | 11 % | **4.7 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/pt.svg" width="18" alt=""> Portugal | K | 100 % | 29 % | 18 % | 9 % | **3.8 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/de.svg" width="18" alt=""> Germany | E | 100 % | 46 % | 21 % | 10 % | **3.2 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ec.svg" width="18" alt=""> Ecuador | E | 100 % | 26 % | 11 % | 4 % | **2.0 %** |
@@ -112,7 +112,7 @@ _Generado 2026-06-30 20:09 UTC a través de 10,000 simulaciones._
 
 | Partido | Estado | Resultado / Predicción | Por qué | L | E | V |
 | --- | --- | --- | --- | ---: | ---: | ---: |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/br.svg" width="18" alt=""> Brazil vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ma.svg" width="18" alt=""> Morocco | FT · 13 Jun 2026 | Real **1-1** <br><sub>Predicción: 1-1</sub> | Model: Or&#225;culo final<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1, +1 more | 33 % | 30 % | 37 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/br.svg" width="18" alt=""> Brazil vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ma.svg" width="18" alt=""> Morocco | FT · 13 Jun 2026 | Real **1-1** <br><sub>Predicción: 1-1</sub> | Model: Or&#225;culo final<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 32 % | 30 % | 38 % |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ht.svg" width="18" alt=""> Haiti vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gb-sct.svg" width="18" alt=""> Scotland | FT · 14 Jun 2026 | Real **0-1** <br><sub>Predicción: 1-2</sub> | Model: Or&#225;culo final<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 31 % | 24 % | 45 % |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ma.svg" width="18" alt=""> Morocco vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gb-sct.svg" width="18" alt=""> Scotland | FT · 19 Jun 2026 | Real **1-0** <br><sub>Predicción: 2-1</sub> | Model: Or&#225;culo final<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-0 | 65 % | 23 % | 12 % |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/br.svg" width="18" alt=""> Brazil vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ht.svg" width="18" alt=""> Haiti | FT · 20 Jun 2026 | Real **3-0** <br><sub>Predicción: 3-1</sub> | Model: Or&#225;culo final<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 2-0 | 79 % | 13 % | 8 % |
