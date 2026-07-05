@@ -56,15 +56,15 @@ _A medida que se recibe nueva información y se juegan partidos reales, el Olor�
 
 ### Torneo
 
-_Generado 2026-07-04 19:26 UTC a través de 10,000 simulaciones._
+_Generado 2026-07-05 04:12 UTC a través de 10,000 simulaciones._
 
 | Equipo | Grupo | Clasifica | 4tos | Semis | Final | Campeón |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ar.svg" width="18" alt=""> Argentina | J | 100 % | 75 % | 55 % | 39 % | **27.1 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ar.svg" width="18" alt=""> Argentina | J | 100 % | 76 % | 55 % | 39 % | **27.1 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/es.svg" width="18" alt=""> Spain | H | 100 % | 51 % | 37 % | 22 % | **11.5 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ma.svg" width="18" alt=""> Morocco | C | 100 % | 51 % | 33 % | 20 % | **10.2 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/co.svg" width="18" alt=""> Colombia | K | 100 % | 68 % | 28 % | 14 % | **7.6 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/jp.svg" width="18" alt=""> Japan | F | 100 % | 37 % | 23 % | 11 % | **6.1 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/jp.svg" width="18" alt=""> Japan | F | 100 % | 37 % | 23 % | 11 % | **6.2 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gb-eng.svg" width="18" alt=""> England | L | 100 % | 46 % | 24 % | 11 % | **5.7 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/br.svg" width="18" alt=""> Brazil | C | 100 % | 34 % | 21 % | 9 % | **5.4 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/fr.svg" width="18" alt=""> France | I | 100 % | 43 % | 22 % | 11 % | **4.7 %** |
@@ -102,7 +102,7 @@ _Generado 2026-07-04 19:26 UTC a través de 10,000 simulaciones._
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ba.svg" width="18" alt=""> Bosnia and Herzegovina vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ch.svg" width="18" alt=""> Switzerland | FT · 18 Jun 2026 | Real **1-4** <br><sub>Predicción: 1-2</sub> | Model: Or&#225;culo final<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 0-2 | 11 % | 18 % | 71 % |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ca.svg" width="18" alt=""> Canada vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/qa.svg" width="18" alt=""> Qatar | FT · 18 Jun 2026 | Real **6-0** <br><sub>Predicción: 2-1</sub> | Model: Or&#225;culo final<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-0 | 64 % | 21 % | 15 % |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ba.svg" width="18" alt=""> Bosnia and Herzegovina vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/qa.svg" width="18" alt=""> Qatar | FT · 24 Jun 2026 | Real **3-1** <br><sub>Predicción: 1-2</sub> | Model: Or&#225;culo final<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1 | 29 % | 25 % | 46 % |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ca.svg" width="18" alt=""> Canada vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ch.svg" width="18" alt=""> Switzerland | FT · 24 Jun 2026 | Real **1-2** <br><sub>Predicción: 1-1</sub> | Model: Or&#225;culo final<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1, +1 more | 35 % | 28 % | 37 % |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ca.svg" width="18" alt=""> Canada vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ch.svg" width="18" alt=""> Switzerland | FT · 24 Jun 2026 | Real **1-2** <br><sub>Predicción: 1-1</sub> | Model: Or&#225;culo final<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-1, +1 more | 34 % | 28 % | 37 % |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ca.svg" width="18" alt=""> Canada vs <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ba.svg" width="18" alt=""> Bosnia and Herzegovina | FT | Real **1-1** <br><sub>Predicción: 2-1</sub> | Model: Or&#225;culo final<br>Signals: Fuerza de ataque ajustada por rival, Vulnerabilidad defensiva ajustada por rival, Grilla de marcadores Dixon-Coles, Marcador m&#225;s probable: 1-0 | 68 % | 21 % | 11 % |
 
 </details>
