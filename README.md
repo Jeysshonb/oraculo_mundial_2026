@@ -5,7 +5,6 @@
 App en .NET 9 + Blazor Server para predecir el Mundial 2026. Usa una escalera de modelos (FIFA, Elo, forma, goles) y corre +10.000 simulaciones Monte Carlo del torneo. Las predicciones se ajustan según goles, lesiones y rankings reales.
 
 ---
----
 
 ## Cómo correrlo en local
 
