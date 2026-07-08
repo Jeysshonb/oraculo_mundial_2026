@@ -158,15 +158,24 @@ namespace OracuMundial2026.Web.Services
             var builder = new StringBuilder();
             builder.AppendLine("## Predicciones más recientes");
             builder.AppendLine("_A medida que se recibe nueva información y se juegan partidos reales, " +
-                "el Oloráculo ajusta sus predicciones y las publica acá. A continuación vas a encontrar las más recientes._");
+                "el Oráculo Mundial 2026 ajusta sus predicciones y las publica acá. A continuación vas a encontrar las más recientes._");
             builder.AppendLine();
             builder.AppendLine("### Torneo");
             builder.AppendLine();
             builder.AppendLine($"_Generado {generatedAt.UtcDateTime:yyyy-MM-dd HH:mm} UTC a través de {projection.Simulations.ToString("N0", CultureInfo.InvariantCulture)} simulaciones._");
             builder.AppendLine();
+
+            // Mostramos solo equipos que siguen vivos: los ya clasificados a la fase final
+            // o, si todavía no hay clasificados asegurados, los que aún pueden avanzar.
+            var alive = projection.Teams.Where(t => t.Qualify >= 0.999).ToList();
+            if (alive.Count == 0)
+                alive = projection.Teams.Where(t => t.WinTournament > 0).ToList();
+
+            builder.AppendLine($"_Equipos aún en carrera: {alive.Count}. (Los eliminados ya no aparecen.)_");
+            builder.AppendLine();
             builder.AppendLine("| Equipo | Grupo | Clasifica | 4tos | Semis | Final | Campeón |");
             builder.AppendLine("| --- | --- | ---: | ---: | ---: | ---: | ---: |");
-            foreach (var team in projection.Teams.OrderByDescending(t => t.WinTournament).ThenBy(t => Name(teamNames, t.TeamId)).Take(16))
+            foreach (var team in alive.OrderByDescending(t => t.WinTournament).ThenBy(t => Name(teamNames, t.TeamId)))
             {
                 builder.AppendLine(
                     $"| {TeamCell(team.TeamId, Name(teamNames, team.TeamId))} | {Escape(team.Group)} | {Percent(team.Qualify, 0)} | {Percent(team.ReachQuarterFinal, 0)} | {Percent(team.ReachSemiFinal, 0)} | {Percent(team.ReachFinal, 0)} | **{Percent(team.WinTournament, 1)}** |");

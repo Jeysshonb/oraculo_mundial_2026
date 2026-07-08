@@ -52,11 +52,13 @@ CSVs en `OracuMundial2026.Web/Data/`: grupos, resultados históricos, goleadores
 
 <!-- oracumundial2026:snapshots:start -->
 ## Predicciones más recientes
-_A medida que se recibe nueva información y se juegan partidos reales, el Oloráculo ajusta sus predicciones y las publica acá. A continuación vas a encontrar las más recientes._
+_A medida que se recibe nueva información y se juegan partidos reales, el Oráculo Mundial 2026 ajusta sus predicciones y las publica acá. A continuación vas a encontrar las más recientes._
 
 ### Torneo
 
-_Generado 2026-07-08 14:33 UTC a través de 10,000 simulaciones._
+_Generado 2026-07-08 18:11 UTC a través de 10,000 simulaciones._
+
+_Equipos aún en carrera: 32. (Los eliminados ya no aparecen.)_
 
 | Equipo | Grupo | Clasifica | 4tos | Semis | Final | Campeón |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
@@ -76,6 +78,22 @@ _Generado 2026-07-08 14:33 UTC a través de 10,000 simulaciones._
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/sn.svg" width="18" alt=""> Senegal | I | 100 % | 26 % | 10 % | 4 % | **1.3 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/be.svg" width="18" alt=""> Belgium | G | 100 % | 26 % | 10 % | 4 % | **1.2 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/au.svg" width="18" alt=""> Australia | D | 100 % | 16 % | 7 % | 3 % | **1.1 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ca.svg" width="18" alt=""> Canada | B | 100 % | 22 % | 9 % | 3 % | **1.1 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/no.svg" width="18" alt=""> Norway | I | 100 % | 18 % | 8 % | 2 % | **1.0 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/mx.svg" width="18" alt=""> Mexico | A | 100 % | 20 % | 7 % | 2 % | **0.8 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/us.svg" width="18" alt=""> United States | D | 100 % | 21 % | 7 % | 2 % | **0.8 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/hr.svg" width="18" alt=""> Croatia | L | 100 % | 11 % | 6 % | 2 % | **0.7 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ch.svg" width="18" alt=""> Switzerland | B | 100 % | 24 % | 6 % | 2 % | **0.5 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ci.svg" width="18" alt=""> Ivory Coast | E | 100 % | 10 % | 4 % | 1 % | **0.3 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/at.svg" width="18" alt=""> Austria | J | 100 % | 9 % | 4 % | 1 % | **0.3 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/eg.svg" width="18" alt=""> Egypt | G | 100 % | 7 % | 2 % | 1 % | **0.2 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/py.svg" width="18" alt=""> Paraguay | D | 100 % | 10 % | 3 % | 1 % | **0.2 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/cd.svg" width="18" alt=""> Congo DR | K | 100 % | 8 % | 2 % | 0 % | **0.1 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/za.svg" width="18" alt=""> South Africa | A | 100 % | 5 % | 1 % | 0 % | **0.0 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/se.svg" width="18" alt=""> Sweden | F | 100 % | 6 % | 1 % | 0 % | **0.0 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ba.svg" width="18" alt=""> Bosnia and Herzegovina | B | 100 % | 1 % | 0 % | 0 % | **0.0 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/cv.svg" width="18" alt=""> Cape Verde | H | 100 % | 1 % | 0 % | 0 % | **0.0 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gh.svg" width="18" alt=""> Ghana | L | 100 % | 3 % | 0 % | 0 % | **0.0 %** |
 
 ### Grupos
 
