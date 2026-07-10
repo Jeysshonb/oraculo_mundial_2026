@@ -55,22 +55,22 @@ _A medida que se recibe nueva información y se juegan partidos reales, el Orác
 
 ### Torneo
 
-_Generado 2026-07-09 19:58 UTC a través de 10,000 simulaciones._
+_Generado 2026-07-10 04:03 UTC a través de 10,000 simulaciones._
 
 _Equipos aún en carrera: 32. (Los eliminados ya no aparecen.)_
 
 | Equipo | Grupo | Clasifica | 4tos | Semis | Final | Campeón |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ar.svg" width="18" alt=""> Argentina | J | 100 % | 76 % | 55 % | 39 % | **27.1 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ar.svg" width="18" alt=""> Argentina | J | 100 % | 75 % | 55 % | 39 % | **27.1 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/es.svg" width="18" alt=""> Spain | H | 100 % | 51 % | 37 % | 23 % | **11.5 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ma.svg" width="18" alt=""> Morocco | C | 100 % | 51 % | 33 % | 20 % | **10.3 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ma.svg" width="18" alt=""> Morocco | C | 100 % | 51 % | 33 % | 20 % | **10.2 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/co.svg" width="18" alt=""> Colombia | K | 100 % | 68 % | 28 % | 14 % | **7.6 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/jp.svg" width="18" alt=""> Japan | F | 100 % | 37 % | 23 % | 11 % | **6.1 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gb-eng.svg" width="18" alt=""> England | L | 100 % | 46 % | 24 % | 11 % | **5.7 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gb-eng.svg" width="18" alt=""> England | L | 100 % | 46 % | 24 % | 11 % | **5.6 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/br.svg" width="18" alt=""> Brazil | C | 100 % | 34 % | 21 % | 9 % | **5.4 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/fr.svg" width="18" alt=""> France | I | 100 % | 44 % | 22 % | 11 % | **4.7 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/pt.svg" width="18" alt=""> Portugal | K | 100 % | 29 % | 17 % | 9 % | **3.8 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/de.svg" width="18" alt=""> Germany | E | 100 % | 46 % | 20 % | 9 % | **3.2 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/de.svg" width="18" alt=""> Germany | E | 100 % | 46 % | 20 % | 10 % | **3.2 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ec.svg" width="18" alt=""> Ecuador | E | 100 % | 26 % | 11 % | 4 % | **1.9 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/nl.svg" width="18" alt=""> Netherlands | F | 100 % | 22 % | 11 % | 5 % | **1.8 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/dz.svg" width="18" alt=""> Algeria | J | 100 % | 27 % | 10 % | 4 % | **1.4 %** |
