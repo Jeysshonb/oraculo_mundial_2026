@@ -55,13 +55,13 @@ _A medida que se recibe nueva información y se juegan partidos reales, el Orác
 
 ### Torneo
 
-_Generado 2026-07-10 19:45 UTC a través de 10,000 simulaciones._
+_Generado 2026-07-11 03:30 UTC a través de 10,000 simulaciones._
 
 _Equipos aún en carrera: 32. (Los eliminados ya no aparecen.)_
 
 | Equipo | Grupo | Clasifica | 4tos | Semis | Final | Campeón |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ar.svg" width="18" alt=""> Argentina | J | 100 % | 75 % | 55 % | 39 % | **27.1 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ar.svg" width="18" alt=""> Argentina | J | 100 % | 75 % | 55 % | 39 % | **27.2 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/es.svg" width="18" alt=""> Spain | H | 100 % | 51 % | 37 % | 23 % | **11.5 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ma.svg" width="18" alt=""> Morocco | C | 100 % | 51 % | 33 % | 20 % | **10.2 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/co.svg" width="18" alt=""> Colombia | K | 100 % | 68 % | 28 % | 14 % | **7.6 %** |
