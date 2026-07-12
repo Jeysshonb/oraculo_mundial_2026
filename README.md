@@ -55,7 +55,7 @@ _A medida que se recibe nueva información y se juegan partidos reales, el Orác
 
 ### Torneo
 
-_Generado 2026-07-11 19:17 UTC a través de 10,000 simulaciones._
+_Generado 2026-07-12 03:41 UTC a través de 10,000 simulaciones._
 
 _Equipos aún en carrera: 32. (Los eliminados ya no aparecen.)_
 
@@ -66,7 +66,7 @@ _Equipos aún en carrera: 32. (Los eliminados ya no aparecen.)_
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/ma.svg" width="18" alt=""> Morocco | C | 100 % | 51 % | 33 % | 20 % | **10.2 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/co.svg" width="18" alt=""> Colombia | K | 100 % | 68 % | 28 % | 14 % | **7.6 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/jp.svg" width="18" alt=""> Japan | F | 100 % | 37 % | 23 % | 11 % | **6.1 %** |
-| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gb-eng.svg" width="18" alt=""> England | L | 100 % | 46 % | 24 % | 11 % | **5.6 %** |
+| <img src="OracuMundial2026.Web/wwwroot/flags/4x3/gb-eng.svg" width="18" alt=""> England | L | 100 % | 46 % | 24 % | 11 % | **5.7 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/br.svg" width="18" alt=""> Brazil | C | 100 % | 34 % | 21 % | 9 % | **5.4 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/fr.svg" width="18" alt=""> France | I | 100 % | 44 % | 22 % | 11 % | **4.7 %** |
 | <img src="OracuMundial2026.Web/wwwroot/flags/4x3/pt.svg" width="18" alt=""> Portugal | K | 100 % | 29 % | 17 % | 9 % | **3.8 %** |
