@@ -55,7 +55,7 @@ _A medida que se recibe nueva información y se juegan partidos reales, el Orác
 
 ### Torneo
 
-_Generado 2026-07-19 08:30 UTC a través de 10,000 simulaciones._
+_Generado 2026-07-19 13:42 UTC a través de 10,000 simulaciones._
 
 _Equipos aún en carrera: 32. (Los eliminados ya no aparecen.)_
 
