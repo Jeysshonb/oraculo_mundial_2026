@@ -6,6 +6,25 @@ App en .NET 9 + Blazor Server para predecir el Mundial 2026. Usa una escalera de
 
 ---
 
+## Cómo terminó esto 🏆
+
+Ya se acabó el Mundial. **Campeón: España** 🇪🇸.
+
+¿Le pegamos? Casi. El oráculo tenía a **Argentina como favorita** y a **España justo detrás, segunda entre 48 selecciones**. O sea que de todos los equipos del planeta, el proyecto puso al campeón real como su segunda apuesta más fuerte. No clavó el número uno, pero le pasó al lado — para un bicho que "funciona como huele", olió bastante bien.
+
+Lo que se armó acá, de cero:
+
+- Una página que predice **todos los partidos** del Mundial, con su marcador y sus probabilidades.
+- **Resultado real vs lo que predijo** en cada partido, para ver dónde acertó y dónde se mandó la cagada.
+- La **fecha** de cada partido, rescatada del historial.
+- Una tabla que muestra **solo los equipos que siguen vivos** y borra a los eliminados.
+- Todo se actualizaba **solo**, sin tocar nada, mientras rodaba el torneo.
+- Y sin pagar una sola API — los resultados reales los sacábamos gratis de una fuente pública.
+
+Se cierra acá. Fue un buen viaje. Nos vemos en el 2030. ⚽
+
+---
+
 ## Cómo correrlo en local
 
 Requisitos: [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
